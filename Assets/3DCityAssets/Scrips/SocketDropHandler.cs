@@ -12,22 +12,26 @@ public class SocketDropHandler : MonoBehaviour
 
     private void OnEnable()
     {
-        socket.selectExited.AddListener(OnSelectExited);
+        socket.selectEntered.AddListener(OnSelectEntering);
     }
 
     private void OnDisable()
     {
-        socket.selectExited.RemoveListener(OnSelectExited);
+        socket.selectEntered.RemoveListener(OnSelectEntering);
     }
 
-    private void OnSelectExited(SelectExitEventArgs args)
+    private void OnSelectEntering(SelectEnterEventArgs args)
     {
         var icon = args.interactableObject.transform.GetComponent<UIIconGrab>();
         if (icon != null && icon.prefabToSpawn != null)
         {
             Instantiate(icon.prefabToSpawn, socket.transform.position, socket.transform.rotation);
-            Destroy(icon.gameObject);
         }
+    }
+
+    public void showInfo()
+    {
+        Debug.Log("show info working");
     }
 }
 
