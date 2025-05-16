@@ -50,14 +50,8 @@ public class UIIconGrab : MonoBehaviour
         rayInteractor.selectExited.RemoveListener(OnSelectExited);
     }
 
-    public void InitializePrefab()
-    {
-        Debug.Log("Initialize Instance " + transform.position);
-        Instantiate(prefabToSpawn, transform.position, transform.rotation);
-        prefabToSpawn.SetActive(false);
-    }
 
-    public void spawnPrefab()
+    public void SpawnPrefab()
     {
         Vector3 spawnPosition = transform.position;
 
