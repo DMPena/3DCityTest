@@ -14,7 +14,7 @@ public class UIIconGrab : MonoBehaviour
 
     private void Awake()
     {
-         rayInteractor = GetComponent<UnityEngine.XR.Interaction.Toolkit.Interactors.NearFarInteractor>();
+        rayInteractor = GetComponent<UnityEngine.XR.Interaction.Toolkit.Interactors.NearFarInteractor>();
     }
 
     private void OnEnable()
@@ -29,7 +29,7 @@ public class UIIconGrab : MonoBehaviour
         {
             Debug.Log("Ray is null");
         }
-        
+
     }
 
     private void OnSelectEnter(SelectEnterEventArgs arg0)
@@ -40,14 +40,17 @@ public class UIIconGrab : MonoBehaviour
     }
     private void OnSelectExited(SelectExitEventArgs arg0)
     {
-        
+
         throw new NotImplementedException();
     }
 
     private void OnDisable()
     {
-        rayInteractor.selectEntered.RemoveListener(OnSelectEnter);
-        rayInteractor.selectExited.RemoveListener(OnSelectExited);
+        if (rayInteractor != null)
+        {
+            rayInteractor.selectEntered.RemoveListener(OnSelectEnter);
+            rayInteractor.selectExited.RemoveListener(OnSelectExited);
+        }
     }
 
     public void InitializePrefab()
@@ -74,6 +77,5 @@ public class UIIconGrab : MonoBehaviour
         Instantiate(prefabToSpawn, spawnPosition, Quaternion.identity);
 
     }
-
 }
 
