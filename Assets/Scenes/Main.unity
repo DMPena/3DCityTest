@@ -394,7 +394,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8407314915218937412, guid: b29f10a950432f742aa5250709d053f0, type: 3}
       propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.size
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8407314915218937412, guid: b29f10a950432f742aa5250709d053f0, type: 3}
       propertyPath: m_Activated.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
@@ -434,7 +434,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8407314915218937412, guid: b29f10a950432f742aa5250709d053f0, type: 3}
       propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8407314915218937412, guid: b29f10a950432f742aa5250709d053f0, type: 3}
       propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
@@ -463,7 +463,7 @@ PrefabInstance:
     - target: {fileID: 8407314915218937412, guid: b29f10a950432f742aa5250709d053f0, type: 3}
       propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1042878517}
+      objectReference: {fileID: 38505383}
     - target: {fileID: 8407314915218937412, guid: b29f10a950432f742aa5250709d053f0, type: 3}
       propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
@@ -526,7 +526,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8407314915218937412, guid: b29f10a950432f742aa5250709d053f0, type: 3}
       propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: UpdateReticleState
+      value: SetIsGrabed
       objectReference: {fileID: 0}
     - target: {fileID: 8407314915218937412, guid: b29f10a950432f742aa5250709d053f0, type: 3}
       propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
@@ -558,7 +558,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8407314915218937412, guid: b29f10a950432f742aa5250709d053f0, type: 3}
       propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: ObjectPlacementHelper, Assembly-CSharp
+      value: DragUIItemSpawner, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 8407314915218937412, guid: b29f10a950432f742aa5250709d053f0, type: 3}
       propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
@@ -2650,8 +2650,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 2.0271199, y: 1, z: 2.3946736}
-  m_Center: {x: -0.51355994, y: 0, z: 0.6124104}
+  m_Size: {x: 0.07, y: 50, z: 0.07}
+  m_Center: {x: 0, y: 23.8, z: 0}
 --- !u!4 &469012359
 Transform:
   m_ObjectHideFlags: 0
@@ -2661,8 +2661,8 @@ Transform:
   m_GameObject: {fileID: 469012356}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.99995404, z: -0, w: -0.009593918}
-  m_LocalPosition: {x: -0.086, y: 7.7, z: 0.1002}
-  m_LocalScale: {x: 0.033333335, y: 100, z: 0.033333335}
+  m_LocalPosition: {x: -0.0767, y: 7.7, z: 0.07}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1554324583}
@@ -3192,7 +3192,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8407314915218937412, guid: b29f10a950432f742aa5250709d053f0, type: 3}
       propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.size
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8407314915218937412, guid: b29f10a950432f742aa5250709d053f0, type: 3}
       propertyPath: m_Activated.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
@@ -3228,7 +3228,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8407314915218937412, guid: b29f10a950432f742aa5250709d053f0, type: 3}
       propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8407314915218937412, guid: b29f10a950432f742aa5250709d053f0, type: 3}
       propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
@@ -3253,7 +3253,7 @@ PrefabInstance:
     - target: {fileID: 8407314915218937412, guid: b29f10a950432f742aa5250709d053f0, type: 3}
       propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1042878517}
+      objectReference: {fileID: 694297308}
     - target: {fileID: 8407314915218937412, guid: b29f10a950432f742aa5250709d053f0, type: 3}
       propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
@@ -3308,7 +3308,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8407314915218937412, guid: b29f10a950432f742aa5250709d053f0, type: 3}
       propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: UpdateReticleState
+      value: SetIsGrabed
       objectReference: {fileID: 0}
     - target: {fileID: 8407314915218937412, guid: b29f10a950432f742aa5250709d053f0, type: 3}
       propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
@@ -3336,7 +3336,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8407314915218937412, guid: b29f10a950432f742aa5250709d053f0, type: 3}
       propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: ObjectPlacementHelper, Assembly-CSharp
+      value: DragUIItemSpawner, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 8407314915218937412, guid: b29f10a950432f742aa5250709d053f0, type: 3}
       propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
@@ -4710,7 +4710,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1006641761}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: CityLayout
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7203,7 +7203,7 @@ GameObject:
   - component: {fileID: 1553701986}
   - component: {fileID: 1553701989}
   - component: {fileID: 1553701988}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: CityRoot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7428,7 +7428,7 @@ GameObject:
   - component: {fileID: 1554324588}
   - component: {fileID: 1554324587}
   - component: {fileID: 1554324586}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: CityBase
   m_TagString: PlaceableSurface
   m_Icon: {fileID: 0}
