@@ -11,10 +11,7 @@ public class DragUIItemSpawner : MonoBehaviour
     public GameObject prefabToSpawn;
 
     private RectTransform iconDefaultLocalLocation;
-    [SerializeField]
     private GameObject iconParent;
-    // [SerializeField]
-    // public ObjectPlacementHelper reticle;
 
 
     private bool isGrabed = false;
@@ -22,9 +19,11 @@ public class DragUIItemSpawner : MonoBehaviour
 
     [SerializeField]
     private RaycastHit iconHitInfo;
-
     [SerializeField]
-    private ObjectPlacementHelper objectPlacementHelper;
+    private LayerMask placeableLayerMask = 0;
+
+    // [SerializeField]
+    // private ObjectPlacementHelper objectPlacementHelper;
     [SerializeField]
     private Vector3 objectPlacementHelperOffset = new Vector3(0,1,0);
 
@@ -32,7 +31,7 @@ public class DragUIItemSpawner : MonoBehaviour
 
     void Awake()
     {
-        objectPlacementHelper = FindAnyObjectByType<ObjectPlacementHelper>();
+        // objectPlacementHelper = FindAnyObjectByType<ObjectPlacementHelper>();
         iconDefaultLocalLocation = GetComponent<RectTransform>();
         iconParent = transform.parent != null ? transform.parent.gameObject : null;
     }
@@ -41,6 +40,7 @@ public class DragUIItemSpawner : MonoBehaviour
     {
         if (isGrabed && IsValidPlaceableLocation(out iconHitInfo))
         {
+
             allowedToSpawn = true;
         }
         else
@@ -61,10 +61,10 @@ public class DragUIItemSpawner : MonoBehaviour
 
     public void ResetIcon()
     {
-        if (objectPlacementHelper != null)
-        {
-            objectPlacementHelper.HideAllReticles();
-        }
+        // if (objectPlacementHelper != null)
+        // {
+        //     objectPlacementHelper.HideAllReticles();
+        // }
         
         // Check if the parent GameObject is active in the hierarchy
         if (iconParent == null || !iconParent.activeInHierarchy)
@@ -92,21 +92,12 @@ public class DragUIItemSpawner : MonoBehaviour
         Vector3 direction = Vector3.down;
         float maxDistance = 100f; // Adjust as needed
 
-        int placeableLayerMask = LayerMask.GetMask("Placeable Surface");
-
         if (Physics.Raycast(origin, direction, out hitInfo, maxDistance, placeableLayerMask))
         {
-
-
-            Debug.Log("Valid placeable location found at: " + hitInfo.point);
             return true;
         }
         else
         {
-            // Set IsValidPlacement to false to show the invalid reticle
-            objectPlacementHelper.IsValidPlacement = false;
-
-            Debug.Log("No valid placeable location found.");
             return false;
         }
     }
@@ -135,12 +126,11 @@ public class DragUIItemSpawner : MonoBehaviour
     {
         if (allowedToSpawn)
         {
-            Debug.Log("Attempting to spawn prefab at: " + iconHitInfo.point);
             SpawnPrefab();
         }
         else
         {
-            Debug.Log("Not allowed to spawn. Ensure a valid placeable location is detected.");
+            Debug.Log("Not allowed to spawn. Ensure a valid placeable location is detected." + isGrabed + iconHitInfo.point);
         }
     }
 
