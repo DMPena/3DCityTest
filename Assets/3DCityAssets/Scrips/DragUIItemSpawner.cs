@@ -22,16 +22,17 @@ public class DragUIItemSpawner : MonoBehaviour
     [SerializeField]
     private LayerMask placeableLayerMask = 0;
 
-    // [SerializeField]
-    // private ObjectPlacementHelper objectPlacementHelper;
     [SerializeField]
-    private Vector3 objectPlacementHelperOffset = new Vector3(0,1,0);
+    private ObjectPlacementHelper objectPlacementHelper;
+
+    [SerializeField]
+    private Vector3 objectPlacementHelperOffset = new Vector3(0, 1, 0);
 
     // Example of set and get methods for IsGrabed
 
     void Awake()
     {
-        // objectPlacementHelper = FindAnyObjectByType<ObjectPlacementHelper>();
+        objectPlacementHelper = FindAnyObjectByType<ObjectPlacementHelper>();
         iconDefaultLocalLocation = GetComponent<RectTransform>();
         iconParent = transform.parent != null ? transform.parent.gameObject : null;
     }
@@ -61,11 +62,11 @@ public class DragUIItemSpawner : MonoBehaviour
 
     public void ResetIcon()
     {
-        // if (objectPlacementHelper != null)
-        // {
-        //     objectPlacementHelper.HideAllReticles();
-        // }
-        
+        if (objectPlacementHelper != null)
+        {
+            objectPlacementHelper.HideAllReticles();
+        }
+
         // Check if the parent GameObject is active in the hierarchy
         if (iconParent == null || !iconParent.activeInHierarchy)
         {
@@ -94,6 +95,12 @@ public class DragUIItemSpawner : MonoBehaviour
 
         if (Physics.Raycast(origin, direction, out hitInfo, maxDistance, placeableLayerMask))
         {
+            // Set IsValidPlacement to true to show the valid reticle
+            objectPlacementHelper.IsValidPlacement = true;
+            // Update the position and rotation of the Reticles GameObject
+            objectPlacementHelper.transform.position = hitInfo.point;
+            objectPlacementHelper.transform.rotation = Quaternion.FromToRotation(Vector3.up, hitInfo.normal);
+
             return true;
         }
         else
@@ -119,7 +126,7 @@ public class DragUIItemSpawner : MonoBehaviour
         {
             Debug.LogWarning("Assign prefab to spawn.");
         }
-        
+
     }
 
     public void TryToSpawnPrefab()
