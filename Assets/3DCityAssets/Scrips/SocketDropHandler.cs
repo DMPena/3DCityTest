@@ -22,9 +22,10 @@ public class SocketDropHandler : MonoBehaviour
 
     private void OnSelectEntering(SelectEnterEventArgs args)
     {
-        var icon = args.interactableObject.transform.GetComponent<UIIconGrab>();
+        var icon = args.interactableObject.transform.GetComponent<DragUIItemSpawner>();
         if (icon != null && icon.prefabToSpawn != null)
         {
+            icon.ResetIcon();
             Instantiate(icon.prefabToSpawn, socket.transform.position, socket.transform.rotation);
         }
     }
