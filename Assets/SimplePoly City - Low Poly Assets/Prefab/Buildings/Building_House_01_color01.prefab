@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 96544734010919973}
   - component: {fileID: 2605934571470674819}
   - component: {fileID: -8435457638504762820}
+  - component: {fileID: 7103873265170212959}
   m_Layer: 0
   m_Name: Building_House_01_color01
   m_TagString: Untagged
@@ -260,3 +261,43 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.7891638, y: 0.90536195, z: 1.2602823}
   m_Center: {x: -0.056064427, y: 0.45260265, z: -0.01332745}
+--- !u!114 &7103873265170212959
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94177fb86abfff24f9dad39cfe4fb8de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  duration: 0.5
+  scaleMultiplier: 1.5
+  initialScaleFactor: 0.1
+  easingCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  startDelay: 0

@@ -122,6 +122,17 @@ public class DragUIItemSpawner : MonoBehaviour
             {
                 GameObject spawnedObject = Instantiate(prefabToSpawn, iconHitInfo.point, objectPlacementHelper.transform.rotation);
                 spawnedObject.transform.SetParent(spawnedObjectParent.transform, true);
+
+                // Trigger the ScaleAndPopEffect
+                ScaleAndPopEffect scaleAndPopEffect = spawnedObject.GetComponent<ScaleAndPopEffect>();
+                if (scaleAndPopEffect != null)
+                {
+                    scaleAndPopEffect.StartScaleAndPopEffect();
+                }
+                else
+                {
+                    Debug.LogWarning("ScaleAndPopEffect script is not attached to the prefab.");
+                }
             }
             else
             {
