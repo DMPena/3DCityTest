@@ -91,14 +91,14 @@ public class DragUIItemSpawner : MonoBehaviour
         {
             int hitLayer = hitInfo.collider.gameObject.layer;
 
-            if (hitLayer >= 0 && hitLayer < 32)
-            {
-                Debug.Log("Placement layer is: " + LayerMask.LayerToName(hitLayer));
-            }
-            else
-            {
-                Debug.LogWarning("Invalid layer index: " + hitLayer);
-            }
+            // if (hitLayer >= 0 && hitLayer < 32)
+            // {
+            //     // Debug.Log("Placement layer is: " + LayerMask.LayerToName(hitLayer));
+            // }
+            // else
+            // {
+            //     // Debug.LogWarning("Invalid layer index: " + hitLayer);
+            // }
 
             // Check if the hit object's layer is in the LayerMaskToAllow
             if ((LayerMaskToAllow.value & (1 << hitLayer)) != 0)
