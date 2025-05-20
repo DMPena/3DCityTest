@@ -101,7 +101,7 @@ MonoBehaviour:
   spawnedObjectParent: {fileID: 0}
   placeableLayerMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 65
 --- !u!54 &1367320662523282570
 Rigidbody:
   m_ObjectHideFlags: 0

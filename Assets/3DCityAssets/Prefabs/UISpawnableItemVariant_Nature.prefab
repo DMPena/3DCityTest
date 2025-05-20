@@ -90,7 +90,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1733538684497688144, guid: b29f10a950432f742aa5250709d053f0, type: 3}
       propertyPath: m_Name
-      value: UISpawnableItemVarian_Trees
+      value: UISpawnableItemVariant_Nature
       objectReference: {fileID: 0}
     - target: {fileID: 2751883114676658268, guid: b29f10a950432f742aa5250709d053f0, type: 3}
       propertyPath: m_Texture
@@ -100,6 +100,14 @@ PrefabInstance:
       propertyPath: prefabToSpawn
       value: 
       objectReference: {fileID: 8671870290397846575, guid: dd539aa1b6616e2478f08692ae70ed1f, type: 3}
+    - target: {fileID: 6513452153625732659, guid: b29f10a950432f742aa5250709d053f0, type: 3}
+      propertyPath: LayerMaskToAllow.m_Bits
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6513452153625732659, guid: b29f10a950432f742aa5250709d053f0, type: 3}
+      propertyPath: LayerMaskToRaycast.m_Bits
+      value: 193
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

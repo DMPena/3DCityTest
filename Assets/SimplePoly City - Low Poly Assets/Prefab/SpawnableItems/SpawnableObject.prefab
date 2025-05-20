@@ -414,3 +414,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   particleEffectPrefab: {fileID: 6082940457805672809, guid: 9f75c9631f619cb4bb11d1e2e4db607e, type: 3}
   shouldPlayOnAwake: 1
+  spawnRotation: {x: 0, y: 0, z: 0}

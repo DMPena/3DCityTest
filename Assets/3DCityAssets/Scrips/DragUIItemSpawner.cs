@@ -12,8 +12,11 @@ public class DragUIItemSpawner : MonoBehaviour
     [SerializeField]
     private GameObject spawnedObjectParent;
 
+    [Header("Interactible Layers")]
     [SerializeField]
-    private LayerMask placeableLayerMask;
+    private LayerMask LayerMaskToRaycast;
+    [SerializeField]
+    private LayerMask LayerMaskToAllow;
 
     [SerializeField]
     private RaycastHit iconHitInfo;
@@ -83,34 +86,49 @@ public class DragUIItemSpawner : MonoBehaviour
         Vector3 direction = Vector3.down;
         float maxDistance = 100f;
 
-        if (Physics.Raycast(origin, direction, out hitInfo, maxDistance))
+        // Perform raycast with the specified LayerMaskToRaycast
+        if (Physics.Raycast(origin, direction, out hitInfo, maxDistance, LayerMaskToRaycast))
         {
-            Debug.Log("Placement layer is:" + hitInfo.transform.gameObject.layer);
-            // Check if the hit object is on the "InvalidPlace" layer
-            if (hitInfo.transform.gameObject.layer == LayerMask.NameToLayer("InvalidPlace"))
+            int hitLayer = hitInfo.collider.gameObject.layer;
+
+            if (hitLayer >= 0 && hitLayer < 32)
             {
+                Debug.Log("Placement layer is: " + LayerMask.LayerToName(hitLayer));
+            }
+            else
+            {
+                Debug.LogWarning("Invalid layer index: " + hitLayer);
+            }
+
+            // Check if the hit object's layer is in the LayerMaskToAllow
+            if ((LayerMaskToAllow.value & (1 << hitLayer)) != 0)
+            {
+                // Valid placement
+                objectPlacementHelper.IsValidPlacement = true;
+                objectPlacementHelper.ShowValidReticle(hitInfo.point);
+                objectPlacementHelper.transform.position = hitInfo.point;
+
+                // Set the rotation so the up vector matches the hit normal, but preserve this transform's Y rotation
+                Quaternion surfaceRotation = Quaternion.FromToRotation(Vector3.up, hitInfo.normal);
+                float yRotation = transform.eulerAngles.y;
+                objectPlacementHelper.transform.rotation = Quaternion.Euler(0, yRotation, 0) * surfaceRotation;
+
+                return true;
+            }
+            else
+            {
+                // Invalid placement
                 objectPlacementHelper.IsValidPlacement = false;
                 objectPlacementHelper.ShowInvalidReticle(hitInfo.point);
                 Debug.Log("Placement is invalid.");
                 return false;
             }
-
-            objectPlacementHelper.IsValidPlacement = true;
-            objectPlacementHelper.ShowValidReticle(hitInfo.point);
-            objectPlacementHelper.transform.position = hitInfo.point;
-
-            // Set the rotation so the up vector matches the hit normal, but preserve this transform's Y rotation
-            Quaternion surfaceRotation = Quaternion.FromToRotation(Vector3.up, hitInfo.normal);
-            float yRotation = transform.eulerAngles.y;
-            objectPlacementHelper.transform.rotation = Quaternion.Euler(0, yRotation, 0) * surfaceRotation;
-
-            // Debug.Log("Valid placeable location found at: " + hitInfo.point);
-            return true;
         }
 
+        // No hit detected
         objectPlacementHelper.IsValidPlacement = false;
         objectPlacementHelper.HideAllReticles();
-        Debug.Log("No hit found");
+        Debug.Log("No hit found.");
         return false;
     }
 
