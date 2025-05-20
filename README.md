@@ -14,7 +14,7 @@ Created prefabs and variants for the UI Menu and for the prefabs to spawn.
 
 Features
 
-*  **Drag-to-World UI Spawning**: Grab UI icons and spawn 3D objects directly into the environment.
+*  **Drag UI Item Spawner**: Grab UI icons and spawn 3D objects directly into the environment.
 *  **ObjectPlacementHelper**: Helps validate object placement.
 *  **ScaleAndPopEffect**: Visual feedback when placing or interacting with elements.
 *  **ParticleBurstEffect**: Triggered on successful object spawn.
@@ -32,22 +32,21 @@ Interactions & Controls
 Menu Interaction Guide
 
 * Press the **Secondary Button (B/Y)** to open or close the floating menu.
-* Point at the menu using your dominant controller's ray.
+* Point at the menu using your dominant controller's **far interactor** ray.
 * Press trigger to select panels
-* Press grip to Grab a UI icon to **drag it** into the 3D scene.
-* Release grip to **spawn** the object at the desired location.
-* Use Joystick to move and rotate grabbed objects.
+* Press **grip** while using **far interactor** to Grab a UI icon to drag it into the 3D scene.
+* Release **grip** to spawn the object at the desired location.
+* Use **Joystick** to move and rotate grabbed objects.
 
 * Valid locations are determined using `ObjectPlacementHelper`.
 * A particle effect and sound confirm the spawn.
        
-
  Issues
 
 * Releasing UI Icon with Menu closed doesnt allow to reset the icon to the UI.
+* Moving grabed UI to close to the controller breaks that grabbing.
 * Spawned Objects can overlap.
 * Not able to grab city after moving it to far away.
 * Incomplete feedback in placement áreas.
-* Moving grabed UI to close to the controller breaks that grabbing.
 * Hand tracking not fully supported.
 
