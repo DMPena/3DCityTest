@@ -3,8 +3,8 @@ using UnityEngine.InputSystem;
 
 public class MenuToggle : MonoBehaviour
 {
-public GameObject mainMenu; // Drag your MainMenu GameObject here
-public InputActionReference toggleMenuAction; // Reference to the ToggleMenu action
+public GameObject mainMenu; 
+public InputActionReference toggleMenuAction;
 
 private void OnEnable()
 {

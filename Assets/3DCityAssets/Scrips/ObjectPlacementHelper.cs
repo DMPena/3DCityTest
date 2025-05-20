@@ -3,59 +3,51 @@ using UnityEngine;
 public class ObjectPlacementHelper : MonoBehaviour
 {
     [SerializeField]
-    private GameObject validPlaceReticle;
-
+    private GameObject validReticle;
     [SerializeField]
-    private GameObject invalidPlaceReticle;
+    private GameObject invalidReticle;
 
-    private bool isValidPlacement;
+    public bool IsValidPlacement { get; set; }
 
-    // Public property to set or get the placement validity
-    public bool IsValidPlacement
+    public void ShowValidReticle(Vector3 position)
     {
-        get => isValidPlacement;
-        set
+        if (validReticle != null)
         {
-            isValidPlacement = value;
-            ToggleReticles(); // Automatically update reticles when the value changes
+            validReticle.SetActive(true);
+            validReticle.transform.position = position;
+        }
+
+        if (invalidReticle != null)
+        {
+            invalidReticle.SetActive(false);
         }
     }
 
-    // Toggles the visibility of the reticles based on placement validity
-    public void ToggleReticles()
+    public void ShowInvalidReticle(Vector3 position)
     {
-        if (validPlaceReticle == null || invalidPlaceReticle == null)
+        if (invalidReticle != null)
         {
-            Debug.LogWarning("Reticle references are not assigned.");
-            return;
+            invalidReticle.SetActive(true);
+            invalidReticle.transform.position = position;
         }
 
-        validPlaceReticle.SetActive(isValidPlacement);
-        invalidPlaceReticle.SetActive(!isValidPlacement);
+        if (validReticle != null)
+        {
+            validReticle.SetActive(false);
+        }
     }
 
-    // Hides all reticles
     public void HideAllReticles()
     {
-        if (validPlaceReticle == null || invalidPlaceReticle == null)
+        if (validReticle != null)
         {
-            Debug.LogWarning("Reticle references are not assigned.");
-            return;
+            validReticle.SetActive(false);
         }
 
-        validPlaceReticle.SetActive(false);
-        invalidPlaceReticle.SetActive(false);
-    }
-
-    private void Awake()
-    {
-        HideAllReticles(); // Ensure reticles are inactive at the start
-    }
-
-    // Update the reticle visibility based on the current placement validity
-    public void UpdateReticleState()
-    {
-        ToggleReticles();
+        if (invalidReticle != null)
+        {
+            invalidReticle.SetActive(false);
+        }
     }
 }
 
