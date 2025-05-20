@@ -90,8 +90,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1733538684497688144, guid: b29f10a950432f742aa5250709d053f0, type: 3}
       propertyPath: m_Name
-      value: UISpawnableItem
+      value: UISpawnableItemVarian_Houses
       objectReference: {fileID: 0}
+    - target: {fileID: 6513452153625732659, guid: b29f10a950432f742aa5250709d053f0, type: 3}
+      propertyPath: prefabToSpawn
+      value: 
+      objectReference: {fileID: 6648009877864762316, guid: 9c025e55e01f1bb498712cb1e80881d6, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

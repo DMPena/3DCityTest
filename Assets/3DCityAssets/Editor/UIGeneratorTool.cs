@@ -5,8 +5,8 @@ using System.IO;
 
 public class UIGeneratorTool : EditorWindow
 {
-    private string prefabFolder = "Assets/_Course Library/_Prefabs/Art"; // change as needed
-    private string savePath = "Assets/Dev/Images";       // where icons will go
+    private string prefabFolder = "Assets/SimplePoly City - Low Poly Assets/Prefab/Natures"; // change as needed
+    private string savePath = "Assets/3DCityAssets/Icons/Nature";       // where icons will go
     private int iconSize = 256;
     private bool sameSizeIcons = false; // New option for same-size icons
 
